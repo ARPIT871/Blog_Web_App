@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function Category({params}) {
   console.log(params)
   return (
-    <Container maxWidth="xl"sx={{ height: "100vh"}}>
+    <Container maxWidth="xl"sx={{ height: "auto"}}>
     <CategoryPage params={params}/>
     </Container>
   

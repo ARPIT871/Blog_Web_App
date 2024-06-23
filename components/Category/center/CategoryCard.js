@@ -3,30 +3,27 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
-import fareImage from '@/public/fareImage.jpg'
+import { Box, CardActionArea } from '@mui/material';
+import fareImage from '@/public/fareImage.jpg';
 import Image from 'next/image';
+import SmallBox from '../smallBox';
 
-export default function CategoryCard() {
+export default function CategoryCard({ params }) {
   return (
-    <Card sx={{ maxWidth: '100%'  }}>
-      <CardActionArea sx={{display:"flex", width:"100%"}}>
-        {/* <CardMedia
-          component="img"
-          height="140"
-          
-          alt="green iguana"
-        /> */}
-        <Image src={fareImage} alt="green iguana" width={250} height={170}/>
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-          Prioritise Comfort And Health With Shoes For Plantar Fasciitis
+    <Card sx={{ maxWidth: '100%',boxShadow: 'none',border:'none' }}>
+      <CardActionArea sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' },border:'none',boxShadow: 'none' }}>
+        <Box sx={{ flex: '0 0 auto', width: { xs: '100%', md: '250px' }, height: { xs: 'auto', md: '170px' } }}>
+          <Image src={fareImage} alt="category image" layout="responsive" width={250} height={170} />
+        </Box>
+        <CardContent sx={{ flex: '1 1 auto', p: 2 }}>
+          <Box sx={{ display: 'flex', mb: 1 }}>
+            <SmallBox value={params.slug} />
+          </Box>
+          <Typography gutterBottom variant="h6" component="div" sx={{ fontWeight: 'bold' }}>
+            Prioritise Comfort And Health With Shoes For Plantar Fasciitis
           </Typography>
           <Typography variant="body2" color="text.secondary">
-          Prioritise Comfort And Health With Shoes For Plantar Fasciitis
-          Prioritise Comfort And Health With Shoes For Plantar Fasciitis
-          Prioritise Comfort And Health With Shoes For Plantar Fasciitis
-
+            Prioritise Comfort And Health With Shoes For Plantar Fasciitis. Prioritise Comfort And Health With Shoes For Plantar Fasciitis. Prioritise Comfort And Health With Shoes For Plantar Fasciitis.
           </Typography>
         </CardContent>
       </CardActionArea>

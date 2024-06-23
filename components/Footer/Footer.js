@@ -17,7 +17,7 @@ import React from "react";
 const Footer = () => {
   return (
     <>
-      <Box>
+      <Box sx={{ bottom: 0, width: "100%" }}>
         <Grid container sx={{ bgcolor: "black" }}>
           <Grid item xs={12} md={4} sx={{ bgcolor: "black" }}>
             <Card sx={{ bgcolor: "black",color:"white" }}>
