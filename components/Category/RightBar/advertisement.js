@@ -2,7 +2,7 @@ import BarHeading from '@/components/BarHeading/BarHeading'
 import { Box } from '@mui/material'
 import React from 'react'
 
-const advertisementBar = () => {
+const AdvertisementBar = () => {
   return (
     <Box sx={{width:"100%",height:"auto" ,padding:"15px"}}>
         <BarHeading value={'Advertisement'}/>
@@ -12,4 +12,4 @@ const advertisementBar = () => {
   )
 }
 
-export default advertisementBar
+export default AdvertisementBar

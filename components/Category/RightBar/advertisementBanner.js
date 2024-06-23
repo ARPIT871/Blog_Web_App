@@ -1,12 +1,13 @@
+import { Box } from '@mui/material'
 import Image from 'next/image'
 import React from 'react'
 
-const advertisementBanner = () => {
+const AdvertisementBanner = () => {
   return (
     <Box>
-        <Image src="/advertisement.jpg" alt="advertisement" width={300} height={300} />
+        <Image src="/fareimage.jpg" alt="advertisement" width={300} height={300} />
     </Box>
   )
 }
 
-export default advertisementBanner
+export default AdvertisementBanner
