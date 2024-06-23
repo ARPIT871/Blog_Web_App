@@ -16,9 +16,14 @@ const CategoryCenter = ({ params }) => {
         </Typography>
         <Typography 
           variant="h4" 
-          sx={{ fontWeight: 'bold', mb: 1 }}
+          sx={{ fontSize: '30px', fontWeight:600, mb: 1 }}
         >
           Category: {params.slug}
+        </Typography>
+        <Typography  
+          sx={{ fontSize: '14px', mb: 1 }}
+        >
+          somrthing about this category will come here i am just adding dummy data
         </Typography>
       </Box>
 

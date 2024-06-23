@@ -1,29 +1,38 @@
-"use client";
-import * as React from "react";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
-import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
-import Link from "next/link";
+'use client';
+import * as React from 'react';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
+import Menu from '@mui/material/Menu';
+import MenuIcon from '@mui/icons-material/Menu';
+import Container from '@mui/material/Container';
+import Avatar from '@mui/material/Avatar';
+import Tooltip from '@mui/material/Tooltip';
+import MenuItem from '@mui/material/MenuItem';
+import Link from 'next/link';
+import Button from '@mui/material/Button';
+
+import FacebookIcon from '@mui/icons-material/Facebook';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import PinterestIcon from '@mui/icons-material/Pinterest';
+import SearchIcon from '@mui/icons-material/Search';
 
 const pages = [
-  { path: "/category/beauty", name: "Beauty" },
-  { path: "/category/entertainment", name: "Entertainment" },
-  { path: "/category/health", name: "Health" },
-  { path: "/category/science", name: "Science" },
-  { path: "/category/sports", name: "Sports" },
-  { path: "/category/technology", name: "Technology" },
+  { path: '/', name: 'Home' },
+  { path: '/category/entertainment', name: 'Beauty' },
+  { path: '/category/health', name: 'Fashion' },
+  { path: '/category/science', name: 'Health' },
+  { path: '/category/sports', name: 'Entertainment' },
+  { path: '/category/technology', name: 'LifeStyle' },
+  { path: '/category/technology', name: 'Relationship' },
+  { path: '/category/technology', name: 'Travel' },
+  { path: '/category/technology', name: 'HomeStyle' },
+  { path: '/category/technology', name: 'Automobiles' },
 ];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+
+const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -45,36 +54,30 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar sx={{zIndex:"999",display:"flex", backgroundColor: "white",boxShadow: "none",border:"1.5px solid #eee", height:"50%",alignItems:"center",justifyContent:"center",top:"0",position:"sticky", }} >
+    <AppBar
+      position="sticky"
+      sx={{
+        backgroundColor: 'white',
+        boxShadow: 'none',
+        borderBottom: '1.5px solid #eee',
+        height: '60px', // Adjust height as needed,
+        border: '1.5px solid #eee',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+    >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          {/* <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} /> */}
-          {/* <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
-            sx={{
-              mr: 2,
-              display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
-            }}
-          >
-            LOGO
-          </Typography> */}
-
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+          <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
               aria-label="account of current user"
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              color="inherit"
+              color="primary"
+              sx={{ marginRight: '16px' }}
             >
               <MenuIcon />
             </IconButton>
@@ -82,91 +85,79 @@ function ResponsiveAppBar() {
               id="menu-appbar"
               anchorEl={anchorElNav}
               anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
+                vertical: 'bottom',
+                horizontal: 'left',
               }}
               keepMounted
               transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
+                vertical: 'top',
+                horizontal: 'left',
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: "block", md: "none" },
+                display: { xs: 'block', md: 'none' },
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page.name}</Typography>
+                <MenuItem key={page.name} onClick={handleCloseNavMenu}>
+                  <Link href={page.path} passHref>
+                    <Typography variant="body2" color="textPrimary">
+                      {page.name}
+                    </Typography>
+                  </Link>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
+
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+            {pages.map((page) => (
+              <Button
+                key={page.name}
+                onClick={handleCloseNavMenu}
+                sx={{ my: 1, mx: 1.5, color: 'black' }}
+              >
+                <Link href={page.path} passHref>
+                  <Typography variant="body2" color="textPrimary">
+                    {page.name}
+                  </Typography>
+                </Link>
+              </Button>
+            ))}
+          </Box>
+
+          {/* Social Icons */}
+          <Box
             sx={{
-              mr: 2,
-              display: { xs: "flex", md: "none" },
-              flexGrow: 1,
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
+              display: 'flex',
+              alignItems: 'center',
+              marginLeft: 'auto',
             }}
           >
-            LOGO
-          </Typography>
+            <FacebookIcon sx={{ fontSize: 24, color: '#3b5998', mx: 1 }} />
+            <InstagramIcon sx={{ fontSize: 24, color: '#c32aa3', mx: 1 }} />
+            <PinterestIcon sx={{ fontSize: 24, color: '#bd081c', mx: 1 }} />
 
-<Box sx={{ flexGrow: 1, display: { xs: "block", md: "flex" } }}>
-  {pages.map((page) => (
-    <Box
-      key={page}
-      onClick={handleCloseNavMenu}
-      sx={{ my: 2, color: "white", display: { xs: "block", md: "inline" } }}
-    >
-      <Link className="text-black ml-[15px]" href={page.path}>{page.name}</Link>
-    </Box>
-  ))}
-</Box>
-
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
+            {/* Search Icon */}
+            <Tooltip sx={{height:'100%'}} title="Search">
+              <Box
+                sx={{
+                  bgcolor: '#00b0ff',
+                  // borderRadius: '50%',
+                  p: 1,
+                  ml: 1,
+                  cursor: 'pointer',
+                }}
+              >
+                <SearchIcon sx={{ fontSize: 24, color: 'white' }} />
+              </Box>
             </Tooltip>
-            <Menu
-              sx={{ mt: "45px" }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
           </Box>
         </Toolbar>
       </Container>
     </AppBar>
   );
 }
+
 export default ResponsiveAppBar;
