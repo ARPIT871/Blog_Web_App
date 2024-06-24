@@ -5,6 +5,7 @@ import FacebookIcon from '@mui/icons-material/Facebook'
 import TwitterIcon from '@mui/icons-material/Twitter'
 import InstagramIcon from '@mui/icons-material/Instagram'
 import PinterestIcon from '@mui/icons-material/Pinterest'
+import AdvertisementBar from './advertisement'
 
 const RightBar = ({params}) => {
     return (
@@ -50,7 +51,7 @@ const RightBar = ({params}) => {
                     </Box>
                 </Box>
             </Box>
-            <></>
+            <AdvertisementBar/>
         </Box>
     )
 }
