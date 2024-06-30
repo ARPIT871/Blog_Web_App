@@ -77,17 +77,33 @@ export default function Home() {
           }}
           ref={scrollRef}
         >
-          {[model1, model4, model5, model1, model4, model5, model2, model3].map(
+          {[model1, model4, model5, model2, model3, model5, model2, model3].map(
             (value) => (
               <div
                 key={value}
-                style={{ display: "inline-block", marginRight: "5px" }}
+                className="inline-block mr-1 w-[350px] min-w-[150px] h-[450px] relative group"
               >
-                <Image
-                  src={value}
-                  alt="logo"
-                  style={{ width: "350px", height: "500px" }}
-                />
+                <div className="relative w-full h-full overflow-hidden">
+                  <Image
+                    src={value}
+                    alt="logo"
+                    className="max-w-[350px] max-h-[450px] h-auto absolute top-0 transition-transform duration-300 group-hover:scale-105"
+                  />
+                  <div
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                    style={{
+                      boxShadow: "inset 0 0 50px 15px rgba(0, 0, 0, 0.5)",
+                    }}
+                  ></div>
+                </div>
+                <div className="w-[85%] absolute bottom-0 m-5 p-4 flex flex-col">
+                  <h1 className="bg-black text-white w-[100px] text-center">
+                    Women
+                  </h1>
+                  <h1 className="text-black text-xl font-bold whitespace-normal break-words">
+                    Exploring Style And Comfort with Sherpa Jacket
+                  </h1>
+                </div>
               </div>
             )
           )}
@@ -100,8 +116,8 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="relative flex flex-col md:flex-row">
-        <div className="sticky top-0  md:h-[800px] overflow-y-hidden   flex-1">
+      <div className="relative flex flex-col lg:flex-row  ">
+        <div className=" overflow-y-auto flex-1 order-1 lg:order-1 lg:sticky lg:top-0 lg:h-[100vh]">
           <div className="flex items-center mb-5 gap-5 bg-[#1313132c]">
             <div className="w-[4px] h-10 bg-black"></div>
             <h1 className="text-2xl">Fitness</h1>
@@ -169,65 +185,80 @@ export default function Home() {
                 <h1 className="text-2xl">Entertainment</h1>
               </div>
               <Grid container spacing={2}>
-                {[model1, fitness2, logo3, model4, logo1, logo2, logo3, logo4].map(
-                  (value) => (
-                    <Card
-                      key={value}
+                {[
+                  model1,
+                  fitness2,
+                  logo3,
+                  model4,
+                  logo1,
+                  logo2,
+                  logo3,
+                  logo4,
+                ].map((value) => (
+                  <Card
+                    key={value}
+                    sx={{
+                      maxWidth: "100%",
+                      boxShadow: "none",
+                      border: "none",
+                    }}
+                  >
+                    <CardActionArea
                       sx={{
-                        maxWidth: "100%",
-                        boxShadow: "none",
+                        display: "flex",
+                        flexDirection: { xs: "column", md: "row" },
                         border: "none",
+                        boxShadow: "none",
                       }}
                     >
-                      <CardActionArea
+                      <Box
                         sx={{
-                          display: "flex",
-                          flexDirection: { xs: "column", md: "row" },
-                          border: "none",
-                          boxShadow: "none",
+                          flex: { xs: "1 1 auto", md: "0 0 250px" },
+                          position: "relative",
+                          width: "100%",
+                          paddingTop: { xs: "56.25%", md: "0" }, // 16:9 aspect ratio for xs, original height for md
+                          height: { md: "170px" },
                         }}
                       >
-                        <Box
-                          sx={{
-                            flex: "0 0 auto",
-                            width: { xs: "100%", md: "250px" },
-                            height: { xs: "auto", md: "170px" },
+                        <Image
+                          src={value}
+                          alt="category image"
+                          layout="fill"
+                          objectFit="fill"
+                          style={{
+                            position: "absolute",
+                            top: 0,
+                            left: 0,
+                            width: "100%",
+                            height: "100%",
                           }}
+                        />
+                      </Box>
+                      <CardContent sx={{ flex: "1 1 auto", p: 2 }}>
+                        <Typography
+                          gutterBottom
+                          variant="h6"
+                          component="div"
+                          sx={{ fontWeight: "bold" }}
                         >
-                          <Image
-                            src={value}
-                            alt="category image"
-                            layout="responsive"
-                            width={250}
-                            height={170}
-                          />
-                        </Box>
-                        <CardContent sx={{ flex: "1 1 auto", p: 2 }}>
-                          <Typography
-                            gutterBottom
-                            variant="h6"
-                            component="div"
-                            sx={{ fontWeight: "bold" }}
-                          >
-                            Prioritise Comfort And Health With Shoes For Plantar
-                            Fasciitis
-                          </Typography>
-                          <Typography variant="body2" color="text.secondary">
-                            Prioritise Comfort And Health With Shoes For Plantar
-                            Fasciitis. Prioritise Comfort And Health With Shoes
-                            For Plantar Fasciitis. Prioritise Comfort And Health
-                            With Shoes For Plantar Fasciitis.
-                          </Typography>
-                        </CardContent>
-                      </CardActionArea>
-                    </Card>
-                  )
-                )}
+                          Prioritise Comfort And Health With Shoes For Plantar
+                          Fasciitis
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary">
+                          Prioritise Comfort And Health With Shoes For Plantar
+                          Fasciitis. Prioritise Comfort And Health With Shoes
+                          For Plantar Fasciitis. Prioritise Comfort And Health
+                          With Shoes For Plantar Fasciitis.
+                        </Typography>
+                      </CardContent>
+                    </CardActionArea>
+                  </Card>
+                ))}
               </Grid>
             </Box>
           </Grid>
         </div>
-        <div className="sticky top-0  h-auto md:h-[100%] w-full md:w-[30%]  overflow-hidden">
+        <div className=" w-full lg:w-[30%] order-2 lg:order-2 lg:sticky lg:top-0">
           <RightBar />
           <AdvertisementBanner />
         </div>
