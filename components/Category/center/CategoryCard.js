@@ -14,28 +14,29 @@ const pages = [
  
 ];
 
-export default function CategoryCard({ params }) {
-  
+
+export default function CategoryCard({ params,item }) {
   return (
     <Link href='/content'>
     <Card sx={{ maxWidth: '100%',boxShadow: 'none',border:'none' }}>
-    <CardActionArea sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' },border:'none',boxShadow: 'none' }}>
-      <Box sx={{ flex: '0 0 auto', width: { xs: '100%', md: '250px' }, height: { xs: 'auto', md: '170px' } }}>
-        <Image src={fareImage} alt="category image" layout="responsive" width={250} height={170} />
-      </Box>
-      <CardContent sx={{ flex: '1 1 auto', p: 2 }}>
-        <Box sx={{ display: 'flex', mb: 1 }}>
-          <SmallBox value={params.slug} />
+
+      <CardActionArea sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' },border:'none',boxShadow: 'none' }}>
+        <Box sx={{ flex: '0 0 auto', width: { xs: '100%', md: '250px' }, height: { xs: 'auto', md: '170px' } }}>
+          <Image src={item.img} alt="category image" layout="responsive" width={250} height={170} />
         </Box>
-        <Typography gutterBottom variant="h6" component="div" sx={{ fontWeight: 'bold' }}>
-          Prioritise Comfort And Health With Shoes For Plantar Fasciitis
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Prioritise Comfort And Health With Shoes For Plantar Fasciitis. Prioritise Comfort And Health With Shoes For Plantar Fasciitis. Prioritise Comfort And Health With Shoes For Plantar Fasciitis.
-        </Typography>
-      </CardContent>
-    </CardActionArea>
-  </Card>
-  </Link>
+        <CardContent sx={{ flex: '1 1 auto', p: 2 }}>
+          <Box sx={{ display: 'flex', mb: 1 }}>
+            <SmallBox value={params.slug} />
+          </Box>
+          <Typography gutterBottom variant="h6" component="div" sx={{ fontWeight: 'bold' }}>
+{item.title}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+{item.Description}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+    </Card>
+    </Link>
   );
 }
