@@ -21,15 +21,15 @@ import SearchIcon from '@mui/icons-material/Search';
 
 const pages = [
   { path: '/', name: 'Home' },
-  { path: '/category/entertainment', name: 'Beauty' },
-  { path: '/category/health', name: 'Fashion' },
-  { path: '/category/science', name: 'Health' },
-  { path: '/category/sports', name: 'Entertainment' },
-  { path: '/category/technology', name: 'LifeStyle' },
-  { path: '/category/technology', name: 'Relationship' },
-  { path: '/category/technology', name: 'Travel' },
-  { path: '/category/technology', name: 'HomeStyle' },
-  { path: '/category/technology', name: 'Automobiles' },
+  { path: '/category/Beauty', name: 'Beauty' },
+  { path: '/category/Fashion', name: 'Fashion' },
+  { path: '/category/Health', name: 'Health' },
+  { path: '/category/Entertainment', name: 'Entertainment' },
+  { path: '/category/Lifestyle', name: 'Lifestyle' },
+  { path: '/category/Relationship', name: 'Relationship' },
+  { path: '/category/Travel', name: 'Travel' },
+  { path: '/category/Homestyle', name: 'Homestyle' },
+  { path: '/category/Automobiles', name: 'Automobiles' },
 ];
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];

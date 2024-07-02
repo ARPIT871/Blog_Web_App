@@ -1,9 +1,13 @@
 import React from "react";
 import CategoryCard from "./CategoryCard";
 import { Box, Typography } from "@mui/material";
+import { categoryData } from "@/utils/categoryData";
 
 const CategoryCenter = ({ params }) => {
-  const array=[1,1,1,1,1,9,9,9,9,9,9,9,9,9,9,9,]
+
+  const categoryArray=categoryData[params.slug]
+  console.log(categoryArray," categoryArray")
+  console.log(params," params")
   return (
     <Box sx={{ p: 2, maxWidth: '1200px', mx: 'auto' }}>
       <Box sx={{ mb: 2 }}>
@@ -27,8 +31,8 @@ const CategoryCenter = ({ params }) => {
         </Typography>
       </Box>
 
-      {array.map((item)=>(
-        <CategoryCard params={params} />
+      {categoryArray.map((item)=>(
+        <CategoryCard params={params} item={item} />
       ))}
     </Box>
   );
