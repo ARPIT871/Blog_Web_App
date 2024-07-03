@@ -17,7 +17,7 @@ const pages = [
 
 export default function CategoryCard({ params,item }) {
   return (
-    <Link href='/content'>
+    <Link key={item.id} href='/content'>
     <Card sx={{ maxWidth: '100%',boxShadow: 'none',border:'none' }}>
 
       <CardActionArea sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' },border:'none',boxShadow: 'none' }}>

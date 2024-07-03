@@ -4,6 +4,7 @@ import React from 'react'
 import LeftBarCard from './LeftbarCard'
 import { Arapey } from 'next/font/google'
 import { recentPosts } from '@/utils/recentPosts'
+import Link from 'next/link'
 
 const LeftBar = ({params}) => {
   
@@ -15,7 +16,9 @@ const LeftBar = ({params}) => {
 
         </Box>
         {recentPosts.map((item)=>(
+        <Link key={item.id} href={'/content'}>
         <LeftBarCard value={params} items={item}/>
+        </Link>
 
         ))}
     </Box>
