@@ -26,7 +26,7 @@ export default function CategoryCard({ params,item }) {
         </Box>
         <CardContent sx={{ flex: '1 1 auto', p: 2 }}>
           <Box sx={{ display: 'flex', mb: 1 }}>
-            <SmallBox value={params.slug} />
+            <SmallBox value={item.categoryName} />
           </Box>
           <Typography gutterBottom variant="h6" component="div" sx={{ fontWeight: 'bold' }}>
 {item.title}
