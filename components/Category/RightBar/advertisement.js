@@ -7,7 +7,8 @@ const AdvertisementBar = () => {
   return (
     <Box sx={{width:"100%",height:"auto" }}>
         <BarHeading value={'Advertisement'}/>
-        <AdvertisementBanner/>
+
+        <AdvertisementBanner />
 
     </Box>
   )

@@ -16,8 +16,8 @@ const SmallBox = ({ value }) => {
       }}
     >
       <Typography sx={{ color: "white", fontSize: "10px", whiteSpace: "nowrap" }}>
-        {/* {value} */}
-        zdfsdfsdfsdf
+        {value}
+        
       </Typography>
     </Box>
   );
